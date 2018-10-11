@@ -18,7 +18,9 @@
   },
   "devDependencies": {
     "css-loader": "^1.0.0",
+    "csv-loader": "^3.0.2",
     "file-loader": "^2.0.0",
-    "style-loader": "^0.23.1"
+    "style-loader": "^0.23.1",
+    "xml-loader": "^1.2.1"
   }
 }
