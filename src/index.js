@@ -1,7 +1,7 @@
 import _ from 'lodash';
-import './style.css';
-import logo from './logo.png';
-import data from './data.xml';
+import './loader-static/style.css';
+import logo from './loader-static/logo.png';
+import data from './loader-static/data.xml';
 
 function component() {
     const element = document.createElement('div');
