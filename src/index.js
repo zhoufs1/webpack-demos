@@ -6,7 +6,9 @@ import flvjs from 'flv.js';
 import printMe from './output-static/print.js';
 function component() {
     const element = document.createElement('div');
-
+    element.style.display='flex';
+    element.style.alignItems='center';
+    element.style.flexDirection='column';
     element.innerHTML = _.join(['Hello', 'webpack!'], ' ');
 
     const btn = document.createElement('button');
@@ -18,10 +20,14 @@ function component() {
     if(flvjs.isSupported()){
         const video = document.createElement('video');
         element.appendChild(video);
+        video.controls = true;
+        video.autoplay = true;
+        video.width = 1024;
+        video.height = 576;
         video.innerText = '打开video';
         const flvPlayer = flvjs.createPlayer({
             type: 'flv',
-            url: 'http://127.0.0.1/flv/7182741-1.flv'
+            url: 'http://www.youtube.com/watch?v=dQ3Mt9yiz6k'
         });
         flvPlayer.attachMediaElement(video);
         flvPlayer.load();
