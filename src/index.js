@@ -1,4 +1,5 @@
 import _ from 'lodash';
+import flvjs from 'flv.js';
 // import './loader-static/style.css';
 // import logo from './loader-static/logo.png';
 // import data from './loader-static/data.xml';
@@ -7,16 +8,25 @@ function component() {
     const element = document.createElement('div');
 
     element.innerHTML = _.join(['Hello', 'webpack!'], ' ');
-    // element.classList.add('hello');
-    // const myLogo = new Image();
-    // myLogo.src = logo;
-    // element.appendChild(myLogo);
-    // console.log(data);
 
     const btn = document.createElement('button');
     btn.innerHTML = 'click me and chick the console1！';
     btn.onclick = printMe;
     element.appendChild(btn);
+
+
+    if(flvjs.isSupported()){
+        const video = document.createElement('video');
+        element.appendChild(video);
+        video.innerText = '打开video';
+        const flvPlayer = flvjs.createPlayer({
+            type: 'flv',
+            url: 'http://127.0.0.1/flv/7182741-1.flv'
+        });
+        flvPlayer.attachMediaElement(video);
+        flvPlayer.load();
+        flvPlayer.play();
+    }
     return element;
 }
 

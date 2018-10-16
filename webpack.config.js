@@ -18,7 +18,7 @@ module.exports = {
         path: path.resolve(__dirname, 'dist'),
         publicPath: '/'
     },
-    mode: 'production',
+    // mode: 'production',
     plugins: [
         new HtmlWebpackPlugin({
             title: '我的webpack小demo',//html的title
