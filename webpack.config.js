@@ -18,7 +18,7 @@ module.exports = {
         path: path.resolve(__dirname, 'dist'),
         publicPath: '/'
     },
-    // mode: 'production',
+    mode: 'production',
     plugins: [
         new HtmlWebpackPlugin({
             title: '我的webpack小demo',//html的title
@@ -31,8 +31,17 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.css$/,
-                use: [
+                test: /\.(jsx|js)$/,
+                exclude: /node_modules/,
+                use: {
+                    loader: 'babel-loader',
+                    options: {
+                        presets: ['es2015', 'react'],
+                    }
+                }
+            },
+            {
+                test: /\.css$/, use: [
                     'style-loader',
                     'css-loader'
                 ]
